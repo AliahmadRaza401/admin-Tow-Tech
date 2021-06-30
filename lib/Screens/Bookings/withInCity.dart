@@ -1,3 +1,4 @@
+import 'package:admin_tow_tech/Widget/table.dart';
 import 'package:flutter/material.dart';
 
 class WithInCity extends StatelessWidget {
@@ -21,7 +22,7 @@ class WithInCity extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 30),
+            padding: EdgeInsets.symmetric(vertical: 20),
             child: Text("Within City Bookings",
               style: TextStyle(
                   fontSize: 17,
@@ -30,29 +31,30 @@ class WithInCity extends StatelessWidget {
               ),
             ),
           ),
-          Table(
-            textDirection: TextDirection.rtl,
-            defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-            border: TableBorder.all(width: 2.0, color: Colors.white12),
-            children: [
-              TableRow(children: [
-                Text(
-                  "Education",
-                  textScaleFactor: 1.5,
-                ),
-                Text("Institution name", textScaleFactor: 1.5),
-                Text("University", textScaleFactor: 1.5),
-              ]),
-              TableRow(children: [
-                Text(
-                  "Education",
-                  textScaleFactor: 1.5,
-                ),
-                Text("Institution name", textScaleFactor: 1.5),
-                Text("University", textScaleFactor: 1.5),
-              ]),
-            ],
-          ),
+          RecordTable(),
+          // Table(
+          //   textDirection: TextDirection.rtl,
+          //   defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
+          //   border: TableBorder.all(width: 2.0, color: Colors.white12),
+          //   children: [
+          //     TableRow(children: [
+          //       Text(
+          //         "Education",
+          //         textScaleFactor: 1.5,
+          //       ),
+          //       Text("Institution name", textScaleFactor: 1.5),
+          //       Text("University", textScaleFactor: 1.5),
+          //     ]),
+          //     TableRow(children: [
+          //       Text(
+          //         "Education",
+          //         textScaleFactor: 1.5,
+          //       ),
+          //       Text("Institution name", textScaleFactor: 1.5),
+          //       Text("University", textScaleFactor: 1.5),
+          //     ]),
+          //   ],
+          // ),
         ],
       ),
     );

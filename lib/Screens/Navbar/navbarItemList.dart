@@ -1,4 +1,4 @@
-import 'package:admin_tow_tech/Provider/dataProvider.dart';
+import 'package:admin_tow_tech/Provider/myprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,6 @@ class _NavBarState extends State<NavBar> {
     for (int i = 0; i < 5; i++) {
       if (i != n) {
         selected[i] = false;
-
       } else {
         selected[i] = true;
       }
@@ -24,8 +23,7 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-
-    final dataProvider = Provider.of<DataProvider>(context);
+    final dataProvider = Provider.of<MyProvider>(context);
 
     return Container(
       height: 350.0,
@@ -80,7 +78,7 @@ class _NavBarState extends State<NavBar> {
             name: "Users",
             active: selected[4],
             touched: () {
-              dataProvider.navigate("Technician");
+              dataProvider.navigate("Users");
               setState(() {
                 select(4);
               });

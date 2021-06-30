@@ -1,5 +1,4 @@
-import 'package:admin_tow_tech/Provider/dataProvider.dart';
-import 'package:admin_tow_tech/Screens/Dashboard/dashboard.dart';
+import 'package:admin_tow_tech/Provider/myprovider.dart';
 import 'package:admin_tow_tech/Screens/Navbar/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +11,7 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
-
-    final dataProvider = Provider.of<DataProvider>(context);
+    final dataProvider = Provider.of<MyProvider>(context);
 
     return Scaffold(
       body: Container(

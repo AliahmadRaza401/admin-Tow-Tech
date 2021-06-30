@@ -1,8 +1,9 @@
 import 'package:admin_tow_tech/Widget/driverData.dart';
 import 'package:admin_tow_tech/Widget/table.dart';
+import 'package:admin_tow_tech/Widget/users.dart';
 import 'package:flutter/material.dart';
 
-class DriverDesktop extends StatelessWidget {
+class UsersDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +16,7 @@ class DriverDesktop extends StatelessWidget {
           Row(
             children: [
               Text(
-                "Drivers",
+                "Users",
                 style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
@@ -46,14 +47,14 @@ class DriverDesktop extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: Text(
-                    "Tow Truck Drivers",
+                    "Tow Truck Users",
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                         color: Color(0xff827daa)),
                   ),
                 ),
-                DriverData(),
+                UserTable(),
               ],
             ),
           )
