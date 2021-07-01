@@ -1,17 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class RecordTable extends StatefulWidget {
-  // const RecordTable({Key? key}) : super(key: key);
+class GetWithInCity extends StatefulWidget {
+  // GetWithInCity({Key? key}) : super(key: key);
 
-  String cityType;
-  RecordTable({this.cityType});
   @override
-  _RecordTableState createState() => _RecordTableState();
+  _GetWithInCityState createState() => _GetWithInCityState();
 }
 
-class _RecordTableState extends State<RecordTable> {
+class _GetWithInCityState extends State<GetWithInCity> {
   final db = FirebaseFirestore.instance;
 
   updateDataIntoDatabase(id, status) {
@@ -30,18 +29,19 @@ class _RecordTableState extends State<RecordTable> {
       child: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.75,
+            width: MediaQuery.of(context).size.width * 0.8,
             // margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 0),
             child: Table(
                 columnWidths: {
-                  0: FractionColumnWidth(0.16),
-                  1: FractionColumnWidth(0.13),
-                  2: FractionColumnWidth(0.13),
-                  3: FractionColumnWidth(0.13),
-                  4: FractionColumnWidth(0.13),
-                  5: FractionColumnWidth(0.13),
-                  6: FractionColumnWidth(0.13),
-                  7: FractionColumnWidth(0.06)
+                  0: FractionColumnWidth(0.15),
+                  1: FractionColumnWidth(0.11),
+                  2: FractionColumnWidth(0.11),
+                  3: FractionColumnWidth(0.12),
+                  4: FractionColumnWidth(0.11),
+                  5: FractionColumnWidth(0.09),
+                  6: FractionColumnWidth(0.12),
+                  7: FractionColumnWidth(0.13),
+                  8: FractionColumnWidth(0.04)
                 },
                 defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
                 border: TableBorder.all(width: 2.0, color: Colors.white12),
@@ -65,6 +65,15 @@ class _RecordTableState extends State<RecordTable> {
                                 padding: EdgeInsets.symmetric(vertical: 15),
                                 child: Text(
                                   'Location',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ))),
+                        Center(
+                            child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 15),
+                                child: Text(
+                                  'Service Type',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -123,7 +132,7 @@ class _RecordTableState extends State<RecordTable> {
                             child: Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Text(
-                            'No.',
+                            '#',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -134,12 +143,12 @@ class _RecordTableState extends State<RecordTable> {
           ),
           // Live Data
           Container(
-            width: MediaQuery.of(context).size.width * 0.75,
+            width: MediaQuery.of(context).size.width * 0.8,
             height: 500,
             child: StreamBuilder(
                 stream: db
                     .collection("Users")
-                    .where("CityType", isEqualTo: "CityToCity")
+                    .where("CityType", isEqualTo: "withIn")
                     .snapshots(),
                 builder: (context, snapshot) {
                   return !snapshot.hasData
@@ -155,14 +164,15 @@ class _RecordTableState extends State<RecordTable> {
                             print(index);
                             return Table(
                                 columnWidths: {
-                                  0: FractionColumnWidth(0.16),
-                                  1: FractionColumnWidth(0.13),
-                                  2: FractionColumnWidth(0.13),
-                                  3: FractionColumnWidth(0.13),
-                                  4: FractionColumnWidth(0.13),
-                                  5: FractionColumnWidth(0.13),
-                                  6: FractionColumnWidth(0.13),
-                                  7: FractionColumnWidth(0.06)
+                                  0: FractionColumnWidth(0.15),
+                                  1: FractionColumnWidth(0.11),
+                                  2: FractionColumnWidth(0.11),
+                                  3: FractionColumnWidth(0.12),
+                                  4: FractionColumnWidth(0.11),
+                                  5: FractionColumnWidth(0.09),
+                                  6: FractionColumnWidth(0.12),
+                                  7: FractionColumnWidth(0.13),
+                                  8: FractionColumnWidth(0.04)
                                 },
                                 defaultVerticalAlignment:
                                     TableCellVerticalAlignment.bottom,
@@ -197,10 +207,20 @@ class _RecordTableState extends State<RecordTable> {
                                             child: Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     vertical: 15),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons
+                                                      .locationArrow,
+                                                  color: Colors.deepOrange,
+                                                  size: 27,
+                                                ))),
+                                        Center(
+                                            child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 15),
                                                 child: Text(
-                                                  'Location',
+                                                  document['Services'],
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: Colors.yellow,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ))),
@@ -250,7 +270,9 @@ class _RecordTableState extends State<RecordTable> {
                                             child: Padding(
                                           padding: const EdgeInsets.all(15.0),
                                           child: Text(
-                                            document['First Name'],
+                                            document['First Name'] +
+                                                " " +
+                                                document['Last Name'],
                                             style: TextStyle(
                                               color: Colors.white,
                                             ),

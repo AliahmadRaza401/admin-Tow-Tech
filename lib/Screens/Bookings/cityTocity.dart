@@ -1,3 +1,4 @@
+import 'package:admin_tow_tech/Database/getCityToCity.dart';
 import 'package:admin_tow_tech/Widget/table.dart';
 import 'package:flutter/material.dart';
 
@@ -23,38 +24,15 @@ class CityToCity extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 20),
-            child: Text("City To City Bookings",
+            child: Text(
+              "City To City Bookings",
               style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xff827daa)
-              ),
+                  color: Color(0xff827daa)),
             ),
           ),
-          RecordTable(),
-          // Table(
-          //   textDirection: TextDirection.rtl,
-          //   defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-          //   border: TableBorder.all(width: 2.0, color: Colors.white12),
-          //   children: [
-          //     TableRow(children: [
-          //       Text(
-          //         "Education",
-          //         textScaleFactor: 1.5,
-          //       ),
-          //       Text("Institution name", textScaleFactor: 1.5),
-          //       Text("University", textScaleFactor: 1.5),
-          //     ]),
-          //     TableRow(children: [
-          //       Text(
-          //         "Education",
-          //         textScaleFactor: 1.5,
-          //       ),
-          //       Text("Institution name", textScaleFactor: 1.5),
-          //       Text("University", textScaleFactor: 1.5),
-          //     ]),
-          //   ],
-          // ),
+          GetCityToCity(),
         ],
       ),
     );

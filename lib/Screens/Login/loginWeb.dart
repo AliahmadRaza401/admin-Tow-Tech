@@ -1,6 +1,8 @@
 // import 'dart:html';
 
 import 'package:admin_tow_tech/Screens/mainLayout.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginWeb extends StatefulWidget {
@@ -11,6 +13,7 @@ class LoginWeb extends StatefulWidget {
 class _LoginWebState extends State<LoginWeb> {
   final _formKey = GlobalKey<FormState>();
   var email, password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,16 +165,17 @@ class _LoginWebState extends State<LoginWeb> {
           style: TextStyle(fontSize: 18),
         ),
         onPressed: () {
-          print(email);
-          print(password);
+          // print(email);
+          // Navigator.of(context)
+          //     .push(MaterialPageRoute(builder: (context) => MainLayout()));
+          // print(password);
           if (_formKey.currentState.validate()) {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => MainLayout()));
-            // if (email == "admin" && password == "admin") {
-            //   Navigator.of(context)
-            //       .push(MaterialPageRoute(builder: (context) => MainLayout()));
-          } else {
-            showAlertDialog(context);
+            if (email == "admin" && password == "admin") {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MainLayout()));
+            } else {
+              showAlertDialog(context);
+            }
           }
         },
         color: Colors.red,

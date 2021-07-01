@@ -2,16 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RecordTable extends StatefulWidget {
-  // const RecordTable({Key? key}) : super(key: key);
+class GetAllUser extends StatefulWidget {
+  // GetAllUser({Key? key}) : super(key: key);
 
-  String cityType;
-  RecordTable({this.cityType});
   @override
-  _RecordTableState createState() => _RecordTableState();
+  _GetAllUserState createState() => _GetAllUserState();
 }
 
-class _RecordTableState extends State<RecordTable> {
+class _GetAllUserState extends State<GetAllUser> {
   final db = FirebaseFirestore.instance;
 
   updateDataIntoDatabase(id, status) {
@@ -54,7 +52,7 @@ class _RecordTableState extends State<RecordTable> {
                             child: Padding(
                                 padding: EdgeInsets.symmetric(vertical: 15),
                                 child: Text(
-                                  "Status",
+                                  "Service Type",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -135,12 +133,9 @@ class _RecordTableState extends State<RecordTable> {
           // Live Data
           Container(
             width: MediaQuery.of(context).size.width * 0.75,
-            height: 500,
+            height: 400,
             child: StreamBuilder(
-                stream: db
-                    .collection("Users")
-                    .where("CityType", isEqualTo: "CityToCity")
-                    .snapshots(),
+                stream: db.collection("Users").snapshots(),
                 builder: (context, snapshot) {
                   return !snapshot.hasData
                       ? Text(
@@ -176,23 +171,15 @@ class _RecordTableState extends State<RecordTable> {
                                       children: [
                                         Center(
                                             child: Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: 15,
-                                          ),
-                                          child: document['Status'] == ""
-                                              ? statusBtn(document.id)
-                                              : Text(
-                                                  document['Status'],
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 15),
+                                                child: Text(
+                                                  document["Services"],
                                                   style: TextStyle(
-                                                      color:
-                                                          document['Status'] ==
-                                                                  "Approved"
-                                                              ? Colors.yellow
-                                                              : Colors.orange,
+                                                      color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold),
-                                                ),
-                                        )),
+                                                ))),
                                         Center(
                                             child: Padding(
                                                 padding: EdgeInsets.symmetric(
