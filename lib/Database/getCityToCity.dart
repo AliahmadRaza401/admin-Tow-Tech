@@ -148,7 +148,7 @@ class _GetCityToCityState extends State<GetCityToCity> {
             child: StreamBuilder(
                 stream: db
                     .collection("Users")
-                    .where("CityType", isEqualTo: "CityToCity")
+                    .where("CityType", isEqualTo: "City To City")
                     .snapshots(),
                 builder: (context, snapshot) {
                   return !snapshot.hasData

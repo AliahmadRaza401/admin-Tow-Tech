@@ -1,3 +1,4 @@
+import 'package:admin_tow_tech/Screens/Map/Map.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -207,11 +208,31 @@ class _GetWithInCityState extends State<GetWithInCity> {
                                             child: Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     vertical: 15),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .locationArrow,
-                                                  color: Colors.deepOrange,
-                                                  size: 27,
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    print(document['Location']
+                                                        ['longitude']);
+                                                    Navigator.of(context)
+                                                        .push(MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    Map(
+                                                                      latitude:
+                                                                          document['Location']
+                                                                              [
+                                                                              'latitude'],
+                                                                      longitude:
+                                                                          document['Location']
+                                                                              [
+                                                                              'longitude'],
+                                                                    )));
+                                                  },
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .locationArrow,
+                                                    color: Colors.deepOrange,
+                                                    size: 27,
+                                                  ),
                                                 ))),
                                         Center(
                                             child: Padding(

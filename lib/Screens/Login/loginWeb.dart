@@ -166,17 +166,17 @@ class _LoginWebState extends State<LoginWeb> {
         ),
         onPressed: () {
           // print(email);
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (context) => MainLayout()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MainLayout()));
           // print(password);
-          if (_formKey.currentState.validate()) {
-            if (email == "admin" && password == "admin") {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MainLayout()));
-            } else {
-              showAlertDialog(context);
-            }
-          }
+          // if (_formKey.currentState.validate()) {
+          //   if (email == "admin" && password == "admin") {
+          //     Navigator.of(context)
+          //         .push(MaterialPageRoute(builder: (context) => MainLayout()));
+          //   } else {
+          //     showAlertDialog(context);
+          //   }
+          // }
         },
         color: Colors.red,
         textColor: Colors.white,

@@ -35,6 +35,7 @@ dependencies:
   cloud_firestore: ^2.2.2
   firebase_auth: ^1.4.1
   font_awesome_flutter: ^9.1.0
+  google_maps: ^3.4.1
 
 
 
