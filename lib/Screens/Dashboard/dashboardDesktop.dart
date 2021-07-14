@@ -164,7 +164,7 @@ class _DashboardDesktopState extends State<DashboardDesktop> {
                     height: 20,
                   ),
                   Text(
-                    "249",
+                    "04",
                     style: TextStyle(
                         fontSize: 60,
                         color: Colors.white,
@@ -176,7 +176,7 @@ class _DashboardDesktopState extends State<DashboardDesktop> {
                 children: [
                   Image.asset(
                     "assets/png/tow.png",
-                    width: MediaQuery.of(context).size.width * 0.17,
+                    width: MediaQuery.of(context).size.width * 0.15,
                   ),
                 ],
               ),
@@ -221,7 +221,7 @@ class _DashboardDesktopState extends State<DashboardDesktop> {
                     height: 20,
                   ),
                   Text(
-                    "539",
+                    "07",
                     style: TextStyle(
                         fontSize: 60,
                         color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:admin_tow_tech/Screens/Login/Login.dart';
 import 'package:flutter/material.dart';
 
 import 'companyName.dart';
@@ -39,6 +40,11 @@ class _NavbarDesktopState extends State<NavbarDesktop> {
               icon: Icons.logout,
               name: "Log Out",
               active: false,
+              touched: () {
+                print("Log Out");
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Login()));
+              },
             ),
           )
         ],
