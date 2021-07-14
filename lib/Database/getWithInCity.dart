@@ -149,7 +149,7 @@ class _GetWithInCityState extends State<GetWithInCity> {
             child: StreamBuilder(
                 stream: db
                     .collection("Users")
-                    .where("CityType", isEqualTo: "withIn")
+                    .where("CityType", isEqualTo: "WithIn City")
                     .snapshots(),
                 builder: (context, snapshot) {
                   return !snapshot.hasData
